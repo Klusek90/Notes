@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 class TodoAdapter (
     var todos: List<Todo>
 ) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
-    inner class TodoViewHolder( itemView: View) : RecyclerView.ViewHolder(itemView){
-        val textView: TextView = itemView.findViewById(R.id.rvTodos)
-        val checkBox: CheckBox = itemView.findViewById(R.id.cbDone)
+    class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var tvTitle: TextView =itemView.findViewById(R.id.tvTitle)
+        var cbCheck: CheckBox= itemView.findViewById(R.id.cbDone)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
@@ -29,8 +29,9 @@ class TodoAdapter (
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
         //position point to item in the list
-        holder.textView.text = todos[position].title
-        holder.checkBox.isChecked = todos[position].isChecked
+
+        holder.tvTitle.text = todos[position].title
+        holder.cbCheck.isChecked = this.todos[position].isChecked
 
        }
     }

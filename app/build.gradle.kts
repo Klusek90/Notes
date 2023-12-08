@@ -1,13 +1,16 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("kotlin-android")
+//    id("kotlin-android-extensions")
 }
 
 android {
     namespace = "com.example.myapplication"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding= true
+    }
     defaultConfig {
         applicationId = "com.example.myapplication"
         minSdk = 24
